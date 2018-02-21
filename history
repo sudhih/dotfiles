@@ -1,0 +1,7 @@
+export HISTSIZE=1000
+
+#Ignore commands from history
+export HISTIGNORE="clear:history"
+
+#Ignore duplicate commands from history
+export HISTCONTROL="ignoredups"
