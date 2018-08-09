@@ -9,7 +9,7 @@ call vundle#begin()
 " call vundle#begin('~\Vim\vimfiles\bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'Vundle/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
  
 " Color schemes
 Plugin 'tomasr/molokai'
