@@ -46,7 +46,7 @@ set termguicolors
 "let base16colorspace=256
 
 " set default colorscheme for vim
-colorscheme base16-monokai
+colorscheme base16-spacemacs
 
 " highlight cursor line
 set cursorline
@@ -70,19 +70,27 @@ set colorcolumn=80
 " remember previous line's indentation & use the same for new line
 set smartindent
 
+" -------- MAPPINGS --------
 " close buffer
 map <Leader>q	<ESC>:q<CR>
-
 " switch to nornal mode
 imap <Leader>e	<ESC>
 vmap <Leader>e	<ESC>
-
 " write buffer to disk
 map <Leader>w	<ESC>:w<CR>
 imap <Leader>w	<ESC>:w<CR>
 " save & exit
 map <Leader>x	<ESC>:x<CR>
-imap <Leader>x	<ESC>:x<CR>
+imap <Leader>x	<ESC>:x<Enter>
+" help file navigations
+autocmd filetype help map <cr> <c-]>
+autocmd filetype help map <buffer><bs> <c-t>
+" maximize help window on open
+autocmd filetype help wincmd _
+" -------- Abbreviations --------
+autocmd filetype javascript :iabbrev cdl console.log(
+
+au BufWrite *.js :silent exec '!tmux send-keys -Rt 1 C-l "node %" Enter' | redraw!
 " pymode variables
 "let g:pymode_rope_completion = 0
 "let g:pymode_rope_completion_bind = '<C-Space>'
