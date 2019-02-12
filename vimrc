@@ -81,10 +81,16 @@ map <Leader>w	<ESC>:w<CR>
 imap <Leader>w	<ESC>:w<CR>
 " save & exit
 map <Leader>x	<ESC>:x<CR>
-imap <Leader>x	<ESC>:x<CR>
-
+imap <Leader>x	<ESC>:x<Enter>
+" help file navigations
+autocmd filetype help map <cr> <c-]>
+autocmd filetype help map <buffer><bs> <c-t>
+" maximize help window on open
+autocmd filetype help wincmd _
 " -------- Abbreviations --------
-au FileType javascript :iabbrev cdl console.log(
+autocmd filetype javascript :iabbrev cdl console.log(
+
+au BufWrite *.js :silent exec '!tmux send-keys -Rt 1 C-l "node %" Enter' | redraw!
 " pymode variables
 "let g:pymode_rope_completion = 0
 "let g:pymode_rope_completion_bind = '<C-Space>'
