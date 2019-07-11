@@ -46,7 +46,8 @@ set termguicolors
 "let base16colorspace=256
 
 " set default colorscheme for vim
-colorscheme base16-spacemacs
+colorscheme base16-macintosh
+"colorscheme murphy
 
 " highlight cursor line
 set cursorline
@@ -70,6 +71,9 @@ set colorcolumn=80
 " remember previous line's indentation & use the same for new line
 set smartindent
 
+" help 'gf' goto-file command look into sub-dirs of working dir too
+" ** value to expand sub directories
+set path+=**
 " -------- MAPPINGS --------
 " close buffer
 map <Leader>q	<ESC>:q<CR>
@@ -88,19 +92,7 @@ autocmd filetype help map <buffer><bs> <c-t>
 " maximize help window on open
 autocmd filetype help wincmd _
 " -------- Abbreviations --------
-autocmd filetype javascript :iabbrev cdl console.log(
+autocmd filetype javascript :iabbrev cdl console.log
 
 au BufWrite *.js :silent exec '!tmux send-keys -Rt 1 C-l "node %" Enter' | redraw!
-" pymode variables
-"let g:pymode_rope_completion = 0
-"let g:pymode_rope_completion_bind = '<C-Space>'
-"let g:pymode_rope_complete_on_dot = 0
-"let g:pymode_rope_autoimport = 0
-"let g:pymode_rope_autoimport_import_after_complete = 0
-
-" Jedi-vim variables
-"let g:jedi#use_splits_not_buffers = 'winwidth'
-"let g:jedi#smart_auto_mappings = 0
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#completions_enabled = 0
-" load key-mappings
+"au BufWrite *.py :silent exec '!tmux send-keys -Rt 1 C-l "python %" Enter' | redraw!
