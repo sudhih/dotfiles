@@ -36,6 +36,9 @@ Plugin 'tpope/commentary'
 call vundle#end()		" required
 filetype plugin indent on	" required
 
+" Automatic reloading of .vimrc
+autocmd! bufwritepost $MYVIMRC source %
+
 "show line numbers & relative numbers
 set number relativenumber
 let mapleader = ","
@@ -74,6 +77,9 @@ set smartindent
 " help 'gf' goto-file command look into sub-dirs of working dir too
 " ** value to expand sub directories
 set path+=**
+
+" highlight search finds
+set hlsearch
 " -------- MAPPINGS --------
 " close buffer
 map <Leader>q	<ESC>:q<CR>
@@ -94,6 +100,9 @@ imap <Leader>t <ESC>:tabnext<CR>
 map <Leader>tt <ESC>:tabprevious<CR>
 imap <Leader>tt <ESC>:tabprevious<CR>
 
+" CTRL-l redraw screen, remove any search highlighting
+nnoremap <silent> <C-l> :nohl<CR>
+
 " markdown
 autocmd filetype markdown :map <CR> 02li__DONE__ <ESC>
 autocmd filetype markdown :iabbrev <CR> - 
@@ -105,8 +114,8 @@ autocmd filetype help map <buffer><bs> <c-t>
 autocmd filetype help wincmd _
 " -------- Abbreviations --------
 autocmd filetype javascript :iabbrev cdl console.log
-autocmd filetype dosini :set commentstring=''
-autocmd filetype dosini :set commentstring='#%s'
+" autocmd filetype dosini :set commentstring=''
+" autocmd filetype dosini :set commentstring='#%s'
 
 " -------- Folding ----------
 autocmd filetype python set foldmethod=indent
@@ -122,7 +131,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-augroup ProjectDrawer
-	autocmd!
-	autocmd VimEnter * :Vexplore
-augroup END
+" augroup ProjectDrawer
+" 	autocmd!
+" 	autocmd VimEnter * :Vexplore
+"   <CTRL-w>w
+" augroup END
