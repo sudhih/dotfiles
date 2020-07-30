@@ -6,3 +6,5 @@ alias la="ls -a"
 alias t='tmux -2'		# force tmux assume terminal supports 256 color scheme, helps vim inside tmux show right colors
 alias tn='tmux -2 new-session -s'
 alias tk='tmux kill-session -t'
+alias ta='tmux attach -t'
+
