@@ -1,0 +1,17 @@
+let g:vimwiki_list = [{
+			\'path': '/mnt/c/Users/sudhir.hanumanthappa/OneDrive - Accenture/vimwiki',
+			\'ext': '.md',
+			\'syntax': 'markdown',
+			\'links_space_char': '_',
+			\'diary_index': 'index'
+	\}]
+
+" use below fancy symbols instead of ' .oOX', default values to show
+" progression of TODO list
+let g:vimwiki_listsyms = '✗○◐●✓'
+" use <br> for every new line, might get used when converting *.wiki to html?
+let g:vimwiki_text_ignore_newline = 1
+" enter markdown extention for the links
+let g:vimwiki_markdown_link_ext = 1
+" number of new lines after a HEADER 
+let g:vimwiki_markdown_header_style = 2
